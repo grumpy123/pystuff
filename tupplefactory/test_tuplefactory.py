@@ -1,5 +1,13 @@
 import pytest
+import sys
 from tupplefactory.tuplefactory import tuple_factory, Required
+
+
+def test_min_python_3_6():
+    """This package depends on PEP 468, introduced in Python 3.6"""
+    assert sys.version_info.major >= 3
+    if sys.version_info.major == 3:
+        assert sys.version_info.minor >= 6
 
 
 def test_positionals():
