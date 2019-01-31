@@ -7,3 +7,4 @@ def test_basic_flat_dict():
 
     fd = FlatDict(repeat)
     assert fd.ala == "ala+ala"
+    assert 'ala' in fd.__dict__

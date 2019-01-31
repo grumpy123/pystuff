@@ -3,4 +3,6 @@ class FlatDict(object):
         self._fetcher = fetcher
 
     def __getattr__(self, item):
-        return self._fetcher(item)
+        val = self._fetcher(item)
+        setattr(self, item, val)
+        return val
