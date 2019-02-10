@@ -21,3 +21,12 @@ def test_caching():
     assert fd.ala == ala
     assert fd.ala != fd.beta
 
+
+def test_cache_cleaning():
+    fd = FlatDict(get_rand)
+    ala1 = fd.ala
+    ala2 = fd._.ala
+    # Confirm cache has been refreshed.
+    assert ala1 != ala2
+    # Also the new value is cached.
+    assert ala2 == fd.ala
